@@ -16,11 +16,8 @@ def post_detail(request, pk):
     return render(request, 'blog/post_detail.html', {'post': post})
 
 def post_new(request):
-    form = PostForm()
-    return render(request, 'blog/post_edit.html', {'form': form})
-
-def post_new(request):
     if request.method == "POST":
+        #el metodo es post cuando el usuario ya esta mandando los datos
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
