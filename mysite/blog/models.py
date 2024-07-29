@@ -17,3 +17,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+    
+class Programador(models.Model):
+    fullname = models.CharField(max_length=100) #crear variable char y la longitud
+    nickname = models.CharField(max_length=50)
+    age = models.PositiveSmallIntegerField() #crear variable int pequeña
+    is_active = models.BooleanField(default=True) #crear variable boolean

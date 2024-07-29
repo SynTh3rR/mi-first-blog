@@ -16,6 +16,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
+router.register(r'programador',views.ProgramadorViewSet)
 router.register(r'users', UserViewSet)
 
 urlpatterns = [
@@ -24,5 +25,6 @@ urlpatterns = [
     path('post/new/', views.post_new, name='post_new'),
     path('hola',views.ola),
     path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
-    path('api-auth/', include('rest_framework.urls'))
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls')),
 ]

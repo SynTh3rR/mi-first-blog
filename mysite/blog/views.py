@@ -3,6 +3,9 @@ from django.utils import timezone
 from .models import Post
 from .forms import PostForm
 from django.shortcuts import redirect
+from rest_framework import viewsets
+from .serializer import ProgramadorSerializer
+from .models import Programador
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -42,3 +45,7 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+class ProgramadorViewSet(viewsets.ModelViewSet):
+    queryset = Programador.objects.all()
+    serializer_class = ProgramadorSerializer
