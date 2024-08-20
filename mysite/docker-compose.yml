@@ -1,0 +1,25 @@
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  web:
+    #command: tail -f /dev/null
+    restart: no
+    build: .
+    working_dir: /code
+    command: python3 manage.py runserver 0.0.0.0:8888
+    volumes:
+      - .:/code
+    ports:
+      - "8888:8888"
+    environment:
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    depends_on:
+      - db

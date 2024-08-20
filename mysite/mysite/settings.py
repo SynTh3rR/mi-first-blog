@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-dq10$l)jv5gt@c-x(h4yo_yjw_f00i)jrliyh@&l)kyu@f=uex
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = [
+    '127.0.0.1', '.pythonanywhere.com',
+    'localhost'
+]
 
 
 # Application definition
@@ -119,7 +122,7 @@ REST_FRAMEWORK = {
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'de-ch'
+LANGUAGE_CODE = 'es-es'
 
 TIME_ZONE = 'America/Santiago'
 
@@ -138,4 +141,3 @@ STATIC_ROOT = BASE_DIR / 'static'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
